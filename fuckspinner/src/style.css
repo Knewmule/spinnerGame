@@ -1,0 +1,188 @@
+/*Grand Schemed Container */
+.container{
+  display: flex;
+  justify-content: center;
+  height: 500px;
+  border: 1px solid #000000;
+}
+/*Green Circle Container & Style*/
+.circle {
+    display:inline;
+    position:relative;
+    border: 5px solid #ff0000;
+    background-color: #00ff00;
+    width: 200px;
+    height: 200px;
+    border-radius: 1000px; 
+    margin: 0.5em;
+}
+/*Spinner Style */
+/* Blue dot*/
+.aligner > span{ 
+  display:inline;
+  position:absolute;
+  height:12px;
+  width:12px;
+  background-color:blue;
+  border-radius:120px;
+}
+/*Spinner in the circle gets bigger yellowish*/
+.aligner {
+  height: 80px;
+  width:10px;
+  background-color:yellow;
+  animation: circleit linear var(--ansec) ;
+}
+div.container>div.circle>div.aligner{
+  position:absolute;
+  left:92px;
+  right:0px;
+  top:60px;
+  bottom:0px;
+  z-index:1;
+  transform:rotate(var(--rot3));
+}
+
+/*Spinner Keyframe Animations*/
+@keyframes circleit {
+  1% {
+  transform: rotate(var(--rot1));
+  } 
+  25% {
+    transform: rotate(var(--rot2));
+  }
+  100%{
+    transform: rotate(var(--rot3));
+  } 
+}
+/* Flex Container */
+div.circle>div.fucks{
+  display:flex;
+  flex-direction:row;
+  justify-content:center;
+  align-content:space-evenly;
+  width:100%;
+  height:100%; 
+}
+/*Inline positioning*/
+div.circle>div#fucksr{
+  position:absolute;
+  top:100px;
+  width:100%;
+  height:100%; 
+}
+div.fucks > p{
+  border-top-left-radius:100px;
+  border:1px solid black;
+}
+p.drawout{
+  padding:0%;
+  margin:0%;
+  width:50%;
+  height:50%;
+}
+/*Hover Individual FUcks */
+div.circle>div.fucks>#it:hover {
+  background-color: #008000;
+  border-style: dotted;
+}
+div.circle>div.fucks>#you:hover {
+  background-color: #008000;
+  border-style: dotted;
+}
+div.circle>div.fucks>#them:hover {
+  background-color: #008000;
+  border-style: dotted;
+}
+div.circle>div.fucks>#us:hover {
+  background-color: #008000;
+  border-style: dotted;
+}
+div.fucks>p#it{
+  transform:rotate(0deg);
+  width:50%;
+  height:50%; 
+}
+div.fucks>p#you{
+  transform:rotate(90deg);
+  width:50%;
+  height:50%; 
+}
+div.fucks>p#them{
+  transform:rotate(-90deg);
+  width:50%;
+  height:50%; 
+}
+div.fucks>p#us{
+  transform:rotate(180deg);
+  width:50%;
+  height:50%; 
+}
+/*Fuckit Text lettering line ups*/
+p.drawout>span{
+  display:flex;
+  justify-content:baseline;
+  align-content:center;
+  margin:1%;
+  width:100%;
+  height:50%;
+  align-items:flex-end;
+  transform: rotate(-40deg);
+}
+
+.drawout.bets{
+  display:flex;
+  justify-content:space-evenly;
+/*   align-content:flex-end; */
+  width:100%;
+  height:100%;
+/*   transform: rotate(-40deg); */
+}
+
+/* The Buttons for Score & spin */
+/*   hr.now{
+  position:absolute;
+  right:50%;
+  transform: rotate(90deg);
+  width:0px;
+  height:100%;  
+  border:1px solid black;
+} */
+.circle>button.now{
+  display:flex;
+  justify-content:space-evenly;
+  align-items:flex-end;
+  margin:0px;
+  width:100%;
+  height:100px;
+  border-bottom:1px solid black;
+  font-size:30px;
+  background-color: #00ff00;
+  border-top-left-radius:106px;
+  border-top-right-radius:110px;
+  color:black;
+}
+
+
+
+div#Spin>button.now:hover{
+   width:100%;
+  height:50%;
+  background-color: #008000;
+  border-style: dotted;
+/*   border-top-left:14%; */
+  border-top-left-radius:106px;
+  border-top-right-radius:110px;
+}
+/* The score*/
+div#Spin {
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  
+}
+#Spin > p{
+  width:50%;
+  color:black;
+  font-size:32px;
+}
