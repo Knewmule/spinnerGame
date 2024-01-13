@@ -1,5 +1,8 @@
 import { styled } from "styled-components";
+import Circlefucks from "../Circlefucks/Circlefucks";
+import { useState } from "react";
 const Container = styled.div`
+
 
     display: flex;
     justify-content: center;
@@ -71,15 +74,29 @@ const Aligner = styled.span`
   } 
 }
 `
+const Fucks = styled.div`
+display:flex;
+  flex-direction:row;
+  justify-content:center;
+  align-content:space-evenly;
+  width:100%;
+  height:100%; 
+`
+// const [circlerot,setCirclerot] = useState({
+//   it:0+'deg', you:90+'deg'
+// }) 
 
 export default function Core(){
 
     return(
         <Container>
     <Circle>
-        
-            <Aligner><Bluedot /></Aligner>
-        
+      <Aligner><Bluedot /></Aligner>
+    </Circle>
+    <Circle>
+      <Fucks>
+      <Circlefucks />
+      </Fucks>
     </Circle>
     </Container>
     );
