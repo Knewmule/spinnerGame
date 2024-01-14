@@ -34,40 +34,51 @@ display:flex;
   align-content:space-evenly;
   width:100%;
   height:100%; 
-position:absolute;
-    
+  position:absolute;  
   top:50%;
-
 `
 
 
 
 export default function Circlefucks(){
 
-    const circlerotate = {
-        it:0+'deg', you:90+'deg',them:-90+'deg',us:180+'deg'
-      }
+    const circlerotate = [
+        'it',0+'deg', 'you',90+'deg','them',-90+'deg','us',180+'deg'
+    ]
     return (
-
-        <><Fucks>
-            <Drawout id={circlerotate.it}>
-            <Drawoutspan >Fuck It</Drawoutspan>
+            
+            circlerotate.map((deg,i)=>{
+              
+              if(i%2 && i < 4){
+                return(
+              
+              <> 
+                
+               
+                  <Drawout key={i} id={deg}>
+                  {console.log(i, deg)}
+            <Drawoutspan key={i} >Fuck {circlerotate[i-1]}</Drawoutspan>
             </Drawout>
-            <Drawout id={circlerotate.you}>
-            <Drawoutspan>Fuck You</Drawoutspan>
+                
+            
+              </>
+              )
+              }else{
+                <Fucksr>
+                return (
+                  
+      
+              
+            <Drawout key={i}id={deg}>
+            <Drawoutspan key={i}>Fuck Them</Drawoutspan>
             </Drawout>
-            </Fucks>
-            <Fucksr>
-            <Drawout id={circlerotate.them}>
-            <Drawoutspan>Fuck Them</Drawoutspan>
-            </Drawout>
-            <Drawout id={circlerotate.us}>
-            <Drawoutspan>Fuck Us</Drawoutspan>
-            </Drawout>
-            </Fucksr>
             
             
-        </>
-
+            
+                )
+                </Fucksr>
+              }
+            })
+            
     );
 }
