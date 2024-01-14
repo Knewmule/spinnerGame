@@ -1,6 +1,7 @@
 import { styled } from "styled-components";
 import Circlefucks from "../Circlefucks/Circlefucks";
 import { useState } from "react";
+import Aligner from "../Aligner/Aligner"
 const Container = styled.div`
 
 
@@ -22,57 +23,6 @@ const Circle = styled.div`
       height: 200px;
       border-radius: 400px; 
       margin: 0.5em;
-
-
-`
-const Bluedot = styled.div`
-
-/*Spinner Style */
-  /* Blue dot*/
-  left: 18%;
-  right:0%;
-  top:90%;
-  bottom:0%; 
-    
-    position:absolute;
-    height:20%;
-    width:100%;
-    background-color:blue;
-    border-radius:100px;
-  
-`
-
-const Aligner = styled.span`
-
-/*Spinner in the circle gets bigger yellowish*/
-
-  height: 40%;
-  width:6%;
-  background-color:yellow;
-  animation: circleit linear 4s ;
-
-
-  position:absolute;
-  left:50%;
-  right:0%;
-  top:30%;
-  bottom:0%;
-  z-index:1;
-  transform:rotate(160deg);
-
-
-/*Spinner Keyframe Animations*/
-@keyframes circleit {
-  1% {
-  transform: rotate(10deg);
-  } 
-  25% {
-    transform: rotate(230deg);
-  }
-  100%{
-    transform: rotate(450deg);
-  } 
-}
 `
 const Fucks = styled.div`
 display:flex;
@@ -91,7 +41,7 @@ export default function Core(){
     return(
         <Container>
     <Circle>
-      <Aligner><Bluedot /></Aligner>
+      <Aligner />
     </Circle>
     <Circle>
       <Fucks>

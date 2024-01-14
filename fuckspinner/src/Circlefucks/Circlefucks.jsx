@@ -1,13 +1,15 @@
 import {styled} from 'styled-components';
 import { useState } from 'react';
-const Fucks = styled.div`
-display:flex;
-  flex-direction:row;
-  justify-content:center;
-  align-content:space-evenly;
-  width:100%;
-  height:100%; 
-`
+import  Aligner  from '../Aligner/Aligner.jsx';
+// import {Aligner, Bluedot} from '../Core/Core.jsx';
+// const Fucks = styled.div`
+// display:flex;
+//   flex-direction:row;
+//   justify-content:center;
+//   align-content:space-evenly;
+//   width:100%;
+//   height:100%; 
+// `
 const Drawoutspan = styled.span`
 display:flex;
   justify-content:baseline;
@@ -39,46 +41,28 @@ display:flex;
 `
 
 
-
 export default function Circlefucks(){
 
-    const circlerotate = [
-        'it',0+'deg', 'you',90+'deg','them',-90+'deg','us',180+'deg'
-    ]
+    const circlerotate = {
+        it:0+'deg', you:90+'deg',them:-90+'deg',us:180+'deg'
+      }
     return (
-            
-            circlerotate.map((deg,i)=>{
-              
-              if(i%2 && i < 4){
-                return(
-              
-              <> 
-                
-               
-                  <Drawout key={i} id={deg}>
-                  {console.log(i, deg)}
-            <Drawoutspan key={i} >Fuck {circlerotate[i-1]}</Drawoutspan>
+            <>
+            <Drawout id={circlerotate.it}>
+              <Drawoutspan >Fuck It</Drawoutspan>
             </Drawout>
-                
-            
-              </>
-              )
-              }else{
-                <Fucksr>
-                return (
-                  
-      
-              
-            <Drawout key={i}id={deg}>
-            <Drawoutspan key={i}>Fuck Them</Drawoutspan>
+            <Drawout id={circlerotate.you}>
+              <Drawoutspan>Fuck You</Drawoutspan>
             </Drawout>
-            
-            
-            
-                )
-                </Fucksr>
-              }
-            })
-            
+          <Aligner />
+          <Fucksr>
+            <Drawout id={circlerotate.them}>
+              <Drawoutspan>Fuck Em</Drawoutspan>
+            </Drawout>
+            <Drawout id={circlerotate.us}>
+              <Drawoutspan>Fuck Us</Drawoutspan>
+            </Drawout>
+          </Fucksr>
+            </>
     );
 }
