@@ -1,7 +1,9 @@
 import { styled } from "styled-components";
 import Circlefucks from "../Circlefucks/Circlefucks";
 import { useState } from "react";
-import Aligner from "../Aligner/Aligner"
+import Aligner from "../Aligner/Aligner";
+import Spinbutton from "../Spinbutton/Spinbutton";
+
 const Container = styled.div`
 
 
@@ -36,6 +38,7 @@ display:flex;
 //   it:0+'deg', you:90+'deg'
 // }) 
 
+
 export default function Core(){
 
     return(
@@ -47,6 +50,9 @@ export default function Core(){
       <Fucks>
       <Circlefucks />
       </Fucks>
+    </Circle>
+    <Circle>
+      <Spinbutton />
     </Circle>
     </Container>
     );

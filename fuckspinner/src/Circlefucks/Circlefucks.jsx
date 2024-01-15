@@ -40,12 +40,13 @@ display:flex;
   top:50%;
 `
 
+const circlerotate = {
+  it:0+'deg', you:90+'deg',them:-90+'deg',us:180+'deg'
+}
 
 export default function Circlefucks(){
 
-    const circlerotate = {
-        it:0+'deg', you:90+'deg',them:-90+'deg',us:180+'deg'
-      }
+    
     return (
             <>
             <Drawout id={circlerotate.it}>
