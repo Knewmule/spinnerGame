@@ -23,11 +23,11 @@ const Score = styled.p`
 font-size:28px;
 color:black;
 `
-export default function Spinbutton(){
+export default function Spinbutton({spin}){
 
     return(
         <Spin>
-            <Now>Spin</Now>
+            <Now onClick={spin}>Spin</Now>
             <Score>100</Score>
         </Spin>
     )

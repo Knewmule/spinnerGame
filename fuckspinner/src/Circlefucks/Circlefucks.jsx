@@ -1,15 +1,6 @@
 import {styled} from 'styled-components';
 import { useState } from 'react';
 import  Aligner  from '../Aligner/Aligner.jsx';
-// import {Aligner, Bluedot} from '../Core/Core.jsx';
-// const Fucks = styled.div`
-// display:flex;
-//   flex-direction:row;
-//   justify-content:center;
-//   align-content:space-evenly;
-//   width:100%;
-//   height:100%; 
-// `
 const Drawoutspan = styled.span`
 display:flex;
   justify-content:baseline;
@@ -44,9 +35,9 @@ const circlerotate = {
   it:0+'deg', you:90+'deg',them:-90+'deg',us:180+'deg'
 }
 
-export default function Circlefucks(){
 
-    
+export default function Circlefucks({spun,ansec}){
+
     return (
             <>
             <Drawout id={circlerotate.it}>
@@ -55,7 +46,7 @@ export default function Circlefucks(){
             <Drawout id={circlerotate.you}>
               <Drawoutspan>Fuck You</Drawoutspan>
             </Drawout>
-          <Aligner />
+          {spun && <Aligner  addsec={ansec}/> }
           <Fucksr>
             <Drawout id={circlerotate.them}>
               <Drawoutspan>Fuck Em</Drawoutspan>

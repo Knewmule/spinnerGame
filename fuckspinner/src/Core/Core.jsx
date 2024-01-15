@@ -4,19 +4,14 @@ import { useState } from "react";
 import Aligner from "../Aligner/Aligner";
 import Spinbutton from "../Spinbutton/Spinbutton";
 
-const Container = styled.div`
-
-
+const Container = styled.main`
     display: flex;
     justify-content: center;
     height: 500px;
     border: 1px solid #000000;
-
-  
 `
 const Circle = styled.div`
 /*Green Circle Container & Style*/
-
       display:inline;
       position:relative;
       border: 5px solid #ff0000;
@@ -34,26 +29,37 @@ display:flex;
   width:100%;
   height:100%; 
 `
-// const [circlerot,setCirclerot] = useState({
-//   it:0+'deg', you:90+'deg'
-// }) 
-
-
 export default function Core(){
+  let [spun,setSpun] = useState(false);
+  let [ansec,setAnsec] = useState({sec:1});
+  // Add the spinner animation for N seconds
+function getRandomArbitrary(min, max) {
+  return Math.random() * (max - min) + min;
+}
+  function addsec(){
+    let sec = getRandomArbitrary(1,4);
+    console.log(sec);
 
+    return sec;
+  };
+
+  function spin(){
+    setSpun(true);
+    setAnsec({sec:6});
+  }
     return(
-        <Container>
-    <Circle>
-      <Aligner />
-    </Circle>
-    <Circle>
-      <Fucks>
-      <Circlefucks />
-      </Fucks>
-    </Circle>
-    <Circle>
-      <Spinbutton />
-    </Circle>
+    <Container>
+      <Circle>
+        <Aligner />
+      </Circle>
+      <Circle>
+        <Fucks>
+          <Circlefucks ansec={ansec} spun={spun}/>
+        </Fucks>
+      </Circle>
+      <Circle>
+        <Spinbutton spin={spin}/>
+      </Circle>
     </Container>
     );
 }

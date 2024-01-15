@@ -24,7 +24,7 @@ export const Align = styled.span`
   height: 40%;
   width:6%;
   background-color:yellow;
-  animation: circleit linear 4s ;
+  animation: circleit linear {${addit()}} ;
 
 
   position:absolute;
@@ -49,10 +49,13 @@ export const Align = styled.span`
   } 
 }
 `
-export default function Aligner(){
 
+export default function Aligner({addsec}){
+  function addit(){
+    return addsec;
+  }
     return (
-        <Align>
+        <Align >
             <Bluedot />
         </Align>
     )
