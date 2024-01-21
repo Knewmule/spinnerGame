@@ -17,15 +17,15 @@ export const Bluedot = styled.div`
   
 `
 
-const circleit = keyframes`
+const circleit = ( {d1,d2,d3}) =>keyframes`
   1%{
-  transform: rotate(${ (props) => (props.d1+'deg')});
+  transform: rotate(${d1+'deg'});
   } 
   25%{
-    transform: rotate(${(props) => (props.d2)}deg);
+    transform: rotate(${d2+'deg'} );
   }
   100%{
-    transform: rotate({${props => props.d3}}deg);
+    transform: rotate(${d3+'deg'} );
   } 
 `
 export const Align = styled.span`
@@ -37,10 +37,10 @@ export const Align = styled.span`
   height: 40%;
   width:6%;
   background-color:yellow;
-  // animation: circleit linear {${props => props.ansec}} ;
-  animation-name: ${circleit};
- animation-duration: ${props => props.sec};
- animation-iteration-count: linear;
+   animation: ${props => circleit(props)} linear ${props => props.sec}s ;
+//   animation-name: ${(props) => circleit({props})};
+//  animation-duration: ${props => props.sec}s;
+//  animation-iteration-count: linear;
 
   position:absolute;
   left:50%;
@@ -58,7 +58,7 @@ export default function Aligner({d1,d2,d3,spun,sec}){
 
     return (
         <Align d1={d1}d2={d2}d3={d3}sec={sec} >
-            <Bluedot />
-        </Align>
+        <Bluedot />
+    </Align>
     );
 };

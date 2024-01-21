@@ -32,7 +32,7 @@ display:flex;
 export default function Core(){
   let [spun,setSpun] = useState(false);
   let [ansec,setAnsec] = useState({
-    sec:'3s'
+    sec:3,d1:10,d2:231,d3:451
   });
   // Add the spinner animation for N seconds
 function getRandomArbitrary(min, max) {
@@ -57,7 +57,7 @@ function getRandomArbitrary(min, max) {
     const spinTimeout = setTimeout( ()=>{
       setSpun(false);  
       clearTimeout(spinTimeout);
-    }, re.sec*1000);
+    }, ansec.sec*1000);
     setSpun(true);
     setAnsec({d1:re.d1,d2:re.d2,d3:re.d3,sec:re.sec});
     console.log(ansec.d1,ansec.d2,ansec.d3, ansec.sec);
