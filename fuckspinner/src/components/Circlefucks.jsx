@@ -1,5 +1,5 @@
 import {styled} from 'styled-components';
-// import { useState } from 'react';
+import { useRef,createRef,useState } from 'react';
 import { StyleSheetManager } from 'styled-components';
 import isValidProp from '@emotion/is-prop-valid';
 import  Aligner  from './Aligner.jsx';
@@ -39,11 +39,18 @@ const circlerotate = {
 
 
 export default function Circlefucks({spun,ansec}){
-
+  let [itstate,setItstate] = useState()
+  let itref = useRef();
+  
+    
+  function drawit (){
+    let it = itref.current;
+    console.log(it);
+  }
     return (
             <>
-            <Drawout id={circlerotate.it}>
-              <Drawoutspan >Fuck It</Drawoutspan>
+            <Drawout ref={itref}id={circlerotate.it}>
+              <Drawoutspan >{drawit()}Fuck It</Drawoutspan>
             </Drawout>
             <Drawout id={circlerotate.you}>
               <Drawoutspan>Fuck You</Drawoutspan>
