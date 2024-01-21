@@ -32,17 +32,17 @@ display:flex;
 export default function Core(){
   let [spun,setSpun] = useState(false);
   let [ansec,setAnsec] = useState({
-    sec:3,d1:10,d2:231,d3:451
+    sec:0,d1:0,d2:0,d3:0
   });
   // Add the spinner animation for N seconds
 function getRandomArbitrary(min, max) {
   return Math.random() * (max - min) + min;
 }
   function addsec(){
-    let s = getRandomArbitrary(1,4);
-    let deg3 = getRandomArbitrary(451,770);
-    let deg2 = getRandomArbitrary(231,450);
-    let deg1 = getRandomArbitrary(10,230);
+    let s = getRandomArbitrary(4,5);
+    let deg3 = getRandomArbitrary(651,1220);
+    let deg2 = getRandomArbitrary(331,650);
+    let deg1 = getRandomArbitrary(0,330);
     let re = {
       sec:Math.ceil(s),d1:Math.ceil(deg1),d2:Math.ceil(deg2),d3:Math.ceil(deg3)
     }

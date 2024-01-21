@@ -54,7 +54,7 @@ export const Align = styled.span`
 
 `
 
-export default function Aligner({d1,d2,d3,d4,spun,sec}){
+export default function Aligner({d1,d2,d3,d4,sec}){
 
     return (
         <Align d1={d1}d2={d2}d3={d3}d4={d4}sec={sec} >
