@@ -1,4 +1,4 @@
-import {styled} from 'styled-components';
+import styled, {keyframes} from 'styled-components';
 
 export const Bluedot = styled.div`
 
@@ -19,23 +19,6 @@ export const Bluedot = styled.div`
 
 export const Align = styled.span`
 
-/*Spinner in the circle gets bigger yellowish*/
-
-  height: 40%;
-  width:6%;
-  background-color:yellow;
-  animation: circleit linear {${addit()}} ;
-
-
-  position:absolute;
-  left:50%;
-  right:0%;
-  top:30%;
-  bottom:0%;
-  z-index:1;
-  transform:rotate(160deg);
-
-
 /*Spinner Keyframe Animations*/
 @keyframes circleit {
   1% {
@@ -48,15 +31,34 @@ export const Align = styled.span`
     transform: rotate(450deg);
   } 
 }
+
+/*Spinner in the circle gets bigger yellowish*/
+
+  height: 40%;
+  width:6%;
+  background-color:yellow;
+  // animation: circleit linear {${props => props.ansec}} ;
+  animation-name: circleit;
+ animation-duration: ${props => props.ansec};
+ animation-iteration-count: linear;
+
+  position:absolute;
+  left:50%;
+  right:0%;
+  top:30%;
+  bottom:0%;
+  z-index:1;
+  transform:rotate(160deg);
+
+
+
 `
 
-export default function Aligner({addsec}){
-  function addit(){
-    return addsec;
-  }
+export default function Aligner({spun,ansec}){
+// let an = {sec:props.ansec};
     return (
-        <Align >
+        <Align ansec={ansec} >
             <Bluedot />
         </Align>
-    )
-}
+    );
+};

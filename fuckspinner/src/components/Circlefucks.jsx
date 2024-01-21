@@ -1,6 +1,6 @@
 import {styled} from 'styled-components';
 import { useState } from 'react';
-import  Aligner  from '../Aligner/Aligner.jsx';
+import  Aligner  from './Aligner.jsx';
 const Drawoutspan = styled.span`
 display:flex;
   justify-content:baseline;
@@ -46,7 +46,7 @@ export default function Circlefucks({spun,ansec}){
             <Drawout id={circlerotate.you}>
               <Drawoutspan>Fuck You</Drawoutspan>
             </Drawout>
-          {spun && <Aligner  addsec={ansec}/> }
+          {spun && <Aligner  spun={spun}ansec={ansec.sec}/> }
           <Fucksr>
             <Drawout id={circlerotate.them}>
               <Drawoutspan>Fuck Em</Drawoutspan>

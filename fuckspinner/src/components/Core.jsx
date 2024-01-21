@@ -1,8 +1,8 @@
 import { styled } from "styled-components";
-import Circlefucks from "../Circlefucks/Circlefucks";
+import Circlefucks from "./Circlefucks";
 import { useState } from "react";
-import Aligner from "../Aligner/Aligner";
-import Spinbutton from "../Spinbutton/Spinbutton";
+import Aligner from "./Aligner";
+import Spinbutton from "./Spinbutton";
 
 const Container = styled.main`
     display: flex;
@@ -31,7 +31,9 @@ display:flex;
 `
 export default function Core(){
   let [spun,setSpun] = useState(false);
-  let [ansec,setAnsec] = useState({sec:1});
+  let [ansec,setAnsec] = useState({
+    sec:'3s'
+  });
   // Add the spinner animation for N seconds
 function getRandomArbitrary(min, max) {
   return Math.random() * (max - min) + min;
@@ -45,7 +47,7 @@ function getRandomArbitrary(min, max) {
 
   function spin(){
     setSpun(true);
-    setAnsec({sec:6});
+    setAnsec({sec:addsec()+'s'});
   }
     return(
     <Container>
