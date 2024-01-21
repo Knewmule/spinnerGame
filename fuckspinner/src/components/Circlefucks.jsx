@@ -1,5 +1,5 @@
 import {styled} from 'styled-components';
-import { useRef,createRef,useState } from 'react';
+import { useCallback,useState } from 'react';
 import { StyleSheetManager } from 'styled-components';
 import isValidProp from '@emotion/is-prop-valid';
 import  Aligner  from './Aligner.jsx';
@@ -39,13 +39,17 @@ const circlerotate = {
 
 
 export default function Circlefucks({spun,ansec}){
-  let [itstate,setItstate] = useState()
-  let itref = useRef();
+  let [itstate,setItstate] = useState(null)
+  let itref = useCallback(domNode =>{
+    if(domNode){
+      setItstate(domNode.getBoundingClientRect());
+    }
+  },[])
   
     
   function drawit (){
-    let it = itref.current;
-    console.log(it);
+    
+    console.log(itstate);
   }
     return (
             <>
