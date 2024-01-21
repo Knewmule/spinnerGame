@@ -39,16 +39,30 @@ function getRandomArbitrary(min, max) {
   return Math.random() * (max - min) + min;
 }
   function addsec(){
-    let sec = getRandomArbitrary(1,4);
-    console.log(sec);
+    let s = getRandomArbitrary(1,4);
+    let deg3 = getRandomArbitrary(451,770);
+    let deg2 = getRandomArbitrary(231,450);
+    let deg1 = getRandomArbitrary(10,230);
+    let re = {
+      sec:Math.ceil(s),d1:Math.ceil(deg1),d2:Math.ceil(deg2),d3:Math.ceil(deg3)
+    }
 
-    return sec;
+    return re;
   };
 
   function spin(){
+    
+    let re = addsec();
+
+    const spinTimeout = setTimeout( ()=>{
+      setSpun(false);  
+      clearTimeout(spinTimeout);
+    }, re.sec*1000);
     setSpun(true);
-    setAnsec({sec:addsec()+'s'});
+    setAnsec({d1:re.d1,d2:re.d2,d3:re.d3,sec:re.sec});
+    console.log(ansec.d1,ansec.d2,ansec.d3, ansec.sec);
   }
+
     return(
     <Container>
       <Circle>
@@ -60,7 +74,7 @@ function getRandomArbitrary(min, max) {
         </Fucks>
       </Circle>
       <Circle>
-        <Spinbutton spin={spin}/>
+        {!spun && <Spinbutton spin={spin}/>}
       </Circle>
     </Container>
     );

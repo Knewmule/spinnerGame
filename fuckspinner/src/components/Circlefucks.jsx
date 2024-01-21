@@ -1,5 +1,7 @@
 import {styled} from 'styled-components';
-import { useState } from 'react';
+// import { useState } from 'react';
+import { StyleSheetManager } from 'styled-components';
+import isValidProp from '@emotion/is-prop-valid';
 import  Aligner  from './Aligner.jsx';
 const Drawoutspan = styled.span`
 display:flex;
@@ -46,7 +48,11 @@ export default function Circlefucks({spun,ansec}){
             <Drawout id={circlerotate.you}>
               <Drawoutspan>Fuck You</Drawoutspan>
             </Drawout>
-          {spun && <Aligner  spun={spun}ansec={ansec.sec}/> }
+          {spun &&
+          <StyleSheetManager shouldForwardProp={ansec => isValidProp(ansec)}>
+          <Aligner  spun={spun} d1={ansec.d1} d2={ansec.d2} d3={ansec.d3}sec={ansec.sec} /> 
+      </StyleSheetManager>
+          }
           <Fucksr>
             <Drawout id={circlerotate.them}>
               <Drawoutspan>Fuck Em</Drawoutspan>

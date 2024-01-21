@@ -17,20 +17,20 @@ export const Bluedot = styled.div`
   
 `
 
+const circleit = keyframes`
+  1%{
+  transform: rotate(${ (props) => (props.d1+'deg')});
+  } 
+  25%{
+    transform: rotate(${(props) => (props.d2)}deg);
+  }
+  100%{
+    transform: rotate({${props => props.d3}}deg);
+  } 
+`
 export const Align = styled.span`
 
 /*Spinner Keyframe Animations*/
-@keyframes circleit {
-  1% {
-  transform: rotate(10deg);
-  } 
-  25% {
-    transform: rotate(230deg);
-  }
-  100%{
-    transform: rotate(450deg);
-  } 
-}
 
 /*Spinner in the circle gets bigger yellowish*/
 
@@ -38,8 +38,8 @@ export const Align = styled.span`
   width:6%;
   background-color:yellow;
   // animation: circleit linear {${props => props.ansec}} ;
-  animation-name: circleit;
- animation-duration: ${props => props.ansec};
+  animation-name: ${circleit};
+ animation-duration: ${props => props.sec};
  animation-iteration-count: linear;
 
   position:absolute;
@@ -54,10 +54,10 @@ export const Align = styled.span`
 
 `
 
-export default function Aligner({spun,ansec}){
-// let an = {sec:props.ansec};
+export default function Aligner({d1,d2,d3,spun,sec}){
+
     return (
-        <Align ansec={ansec} >
+        <Align d1={d1}d2={d2}d3={d3}sec={sec} >
             <Bluedot />
         </Align>
     );
