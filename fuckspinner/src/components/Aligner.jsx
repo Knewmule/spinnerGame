@@ -48,16 +48,16 @@ export const Align = styled.span`
   top:30%;
   bottom:0%;
   z-index:1;
-  transform:rotate(160deg);
+  transform:rotate(${props => props.d4}deg);
 
 
 
 `
 
-export default function Aligner({d1,d2,d3,spun,sec}){
+export default function Aligner({d1,d2,d3,d4,spun,sec}){
 
     return (
-        <Align d1={d1}d2={d2}d3={d3}sec={sec} >
+        <Align d1={d1}d2={d2}d3={d3}d4={d4}sec={sec} >
         <Bluedot />
     </Align>
     );

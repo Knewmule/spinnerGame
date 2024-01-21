@@ -48,10 +48,10 @@ export default function Circlefucks({spun,ansec}){
             <Drawout id={circlerotate.you}>
               <Drawoutspan>Fuck You</Drawoutspan>
             </Drawout>
-          {spun &&
+          {spun ?
           <StyleSheetManager shouldForwardProp={ansec => isValidProp(ansec)}>
-          <Aligner  spun={spun} d1={ansec.d1} d2={ansec.d2} d3={ansec.d3}sec={ansec.sec} /> 
-      </StyleSheetManager>
+          <Aligner  spun={spun} d1={ansec.d1} d2={ansec.d2} d3={ansec.d3} d4={ansec.d3}sec={ansec.sec} /> 
+      </StyleSheetManager> : <Aligner  spun={spun} d1={null} d2={null} d3={null} d4={ansec.d3}sec={null} /> 
           }
           <Fucksr>
             <Drawout id={circlerotate.them}>
