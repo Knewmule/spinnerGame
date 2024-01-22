@@ -38,32 +38,33 @@ const circlerotate = {
 }
 
 
-export default function Circlefucks({spun,ansec}){
+export default function Circlefucks({spun,ansec,...props}){
   let [itstate,setItstate] = useState(null);
- 
+  let [blueState,setBluestate] = useState(null);
   let itref = useCallback(domNode =>{
     if(domNode){
       setItstate(domNode.getBoundingClientRect());
     }
   },[]);
 
-  function drawit (){
+  function drawit (d){
     
-    console.log(itstate);
+    return d;
+
   }
     return (
             <>
             <Drawout ref={itref}id={circlerotate.it}>
-              <Drawoutspan >{drawit()}Fuck It</Drawoutspan>
+              <Drawoutspan >Fuck It</Drawoutspan>
             </Drawout>
             <Drawout id={circlerotate.you}>
               <Drawoutspan>Fuck You</Drawoutspan>
             </Drawout>
           
-          <StyleSheetManager shouldForwardProp={ansec => isValidProp(ansec)}>
+          
           {spun ? <Aligner  spun={spun} d1={ansec.d1} d2={ansec.d2} d3={ansec.d3} d4={ansec.d3}sec={ansec.sec} /> :
-            <Aligner d1={null} d2={null} d3={null} d4={ansec.d3}sec={null} /> } 
-      </StyleSheetManager>
+            <Aligner spun={spun} d1={null} d2={null} d3={null} d4={ansec.d3}sec={null} /> } 
+      
           
           <Fucksr>
             <Drawout id={circlerotate.them}>

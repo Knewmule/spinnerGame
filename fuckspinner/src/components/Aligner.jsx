@@ -1,4 +1,5 @@
-import styled, {keyframes} from 'styled-components';
+import styled, {keyframes, StyleSheetManager} from 'styled-components';
+import isValidProp from '@emotion/is-prop-valid';
 import { useCallback,useState } from 'react';
 export const Bluedot = styled.div`
 
@@ -54,21 +55,29 @@ export const Align = styled.span`
 
 `
 
-export default function Aligner({getBluestate,d1,d2,d3,d4,sec,ref}){
+export default function Aligner({d1,d2,d3,d4,sec,spun}){
   let [bluestate,setBluestate] = useState(null);
   let blueref = useCallback(domNode =>{
-    if(domNode){
+    if(domNode && !spun){
+      setBluestate(domNode.getBoundingClientRect());
+    }else if(domNode && spun){
+      setBluestate(null);
+    }else{
       setBluestate(domNode.getBoundingClientRect());
     }
   },[]);
    function handleBluestate (){
-    
-      console.log(bluestate);
+      
+     console.log(bluestate);
     
   }
     return (
-        <Align d1={d1}d2={d2}d3={d3}d4={d4}sec={sec} >
-        <Bluedot ref={blueref}>{handleBluestate()}</Bluedot>  
+      <StyleSheetManager shouldForwardProp={ansec => isValidProp(ansec)}>
+
+<Align ref={blueref}d1={d1}d2={d2}d3={d3}d4={d4}sec={sec} >
+        <Bluedot  >{!spun && handleBluestate()}</Bluedot>  
     </Align>
+      </StyleSheetManager>
+        
     );
 };
