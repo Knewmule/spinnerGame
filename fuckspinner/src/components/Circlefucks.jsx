@@ -39,14 +39,23 @@ const circlerotate = {
 
 
 export default function Circlefucks({spun,ansec}){
-  let [itstate,setItstate] = useState(null)
+  let [itstate,setItstate] = useState(null);
+  let [bluestate,setBluestate] = useState(null);
   let itref = useCallback(domNode =>{
     if(domNode){
       setItstate(domNode.getBoundingClientRect());
     }
   },[])
-  
-    
+  let blueref = useCallback(domNode =>{
+    if(domNode){
+      setBluestate(domNode.getBoundingClientRect());
+    }
+  },[])
+   function handleBluestate (){
+    if(bluestate != null){
+      console.log(bluestate);
+    }
+  }
   function drawit (){
     
     console.log(itstate);
@@ -62,7 +71,7 @@ export default function Circlefucks({spun,ansec}){
           
           <StyleSheetManager shouldForwardProp={ansec => isValidProp(ansec)}>
           {spun ? <Aligner  spun={spun} d1={ansec.d1} d2={ansec.d2} d3={ansec.d3} d4={ansec.d3}sec={ansec.sec} /> :
-            <Aligner d1={null} d2={null} d3={null} d4={ansec.d3}sec={null} /> } 
+            <Aligner getBluestate={handleBluestate}ref={blueref}d1={null} d2={null} d3={null} d4={ansec.d3}sec={null} /> } 
       </StyleSheetManager>
           
           <Fucksr>
