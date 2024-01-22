@@ -1,5 +1,5 @@
 import styled, {keyframes} from 'styled-components';
-import { useRef } from 'react';
+import { useCallback,useState } from 'react';
 export const Bluedot = styled.div`
 
 /*Spinner Style */
@@ -54,11 +54,21 @@ export const Align = styled.span`
 
 `
 
-export default function Aligner({getBluestate,d1,d2,d3,d4,sec},ref){
-    let bluedotRef = useRef();
+export default function Aligner({getBluestate,d1,d2,d3,d4,sec,ref}){
+  let [bluestate,setBluestate] = useState(null);
+  let blueref = useCallback(domNode =>{
+    if(domNode){
+      setBluestate(domNode.getBoundingClientRect());
+    }
+  },[]);
+   function handleBluestate (){
+    
+      console.log(bluestate);
+    
+  }
     return (
         <Align d1={d1}d2={d2}d3={d3}d4={d4}sec={sec} >
-        <Bluedot ref={bluedotRef}  />
+        <Bluedot ref={blueref}>{handleBluestate()}</Bluedot>  
     </Align>
     );
 };
