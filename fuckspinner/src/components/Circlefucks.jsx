@@ -38,39 +38,30 @@ const circlerotate = {
 }
 
 
-export default function Circlefucks({spun,ansec,blueref}){
-  let [itstate,setItstate] = useState(null);
-  let [blueState,setBluestate] = useState(null);
-  let itref = useCallback(domNode =>{
-    if(domNode){
-      setItstate(domNode.getBoundingClientRect());
-    }
-  },[]);
+export default function Circlefucks({spun,ansec,blueref,itref,themref,youref,usref}){
 
-  function drawit (d){
-    
-    return d;
+  
 
-  }
+
     return (
             <>
             <Drawout ref={itref}id={circlerotate.it}>
               <Drawoutspan >Fuck It</Drawoutspan>
             </Drawout>
-            <Drawout id={circlerotate.you}>
+            <Drawout ref={youref}id={circlerotate.you}>
               <Drawoutspan>Fuck You</Drawoutspan>
             </Drawout>
           
           
-          {spun ? <Aligner blueref={blueref} spun={spun} d1={ansec.d1} d2={ansec.d2} d3={ansec.d3} d4={ansec.d3}sec={ansec.sec} /> :
-            <Aligner spun={spun} d1={null} d2={null} d3={null} d4={ansec.d3}sec={null} /> } 
+          {spun ? <Aligner  d1={ansec.d1} d2={ansec.d2} d3={ansec.d3} d4={ansec.d3}sec={ansec.sec} /> :
+            <Aligner blueref={blueref} d1={null} d2={null} d3={null} d4={ansec.d3}sec={null} /> } 
       
           
           <Fucksr>
-            <Drawout id={circlerotate.them}>
+            <Drawout ref={themref} id={circlerotate.them}>
               <Drawoutspan>Fuck Em</Drawoutspan>
             </Drawout>
-            <Drawout id={circlerotate.us}>
+            <Drawout ref={usref} id={circlerotate.us}>
               <Drawoutspan>Fuck Us</Drawoutspan>
             </Drawout>
           </Fucksr>

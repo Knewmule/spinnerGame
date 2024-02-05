@@ -55,15 +55,15 @@ export const Align = styled.span`
 
 `
 
-export default function Aligner({d1,d2,d3,d4,sec,spun,blueref,bluestate}){
+export default function Aligner({d1,d2,d3,d4,sec,blueref}){
   
   
    
     return (
       <StyleSheetManager shouldForwardProp={ansec => isValidProp(ansec)}>
 
-<Align ref={blueref}d1={d1}d2={d2}d3={d3}d4={d4}sec={sec} >
-        <Bluedot  ></Bluedot>  
+<Align d1={d1}d2={d2}d3={d3}d4={d4}sec={sec} >
+        <Bluedot ref={blueref} ></Bluedot>  
     </Align>
       </StyleSheetManager>
         
