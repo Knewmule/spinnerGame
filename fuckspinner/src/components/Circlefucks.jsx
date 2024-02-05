@@ -38,7 +38,7 @@ const circlerotate = {
 }
 
 
-export default function Circlefucks({spun,ansec,...props}){
+export default function Circlefucks({spun,ansec,blueref}){
   let [itstate,setItstate] = useState(null);
   let [blueState,setBluestate] = useState(null);
   let itref = useCallback(domNode =>{
@@ -62,7 +62,7 @@ export default function Circlefucks({spun,ansec,...props}){
             </Drawout>
           
           
-          {spun ? <Aligner  spun={spun} d1={ansec.d1} d2={ansec.d2} d3={ansec.d3} d4={ansec.d3}sec={ansec.sec} /> :
+          {spun ? <Aligner blueref={blueref} spun={spun} d1={ansec.d1} d2={ansec.d2} d3={ansec.d3} d4={ansec.d3}sec={ansec.sec} /> :
             <Aligner spun={spun} d1={null} d2={null} d3={null} d4={ansec.d3}sec={null} /> } 
       
           
