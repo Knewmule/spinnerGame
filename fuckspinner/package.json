@@ -37,6 +37,10 @@
     ]
   },
   "devDependencies": {
-    "cypress": "^13.6.4"
+    "@cfaester/enzyme-adapter-react-18": "^0.7.1",
+    "@types/jest": "^29.5.12",
+    "cypress": "^13.6.4",
+    "enzyme": "^3.11.0",
+    "jest": "^27.5.1"
   }
 }
