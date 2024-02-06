@@ -136,7 +136,7 @@ function CollisionTest(){
             </Fucks>
           </Circle>
           <Circle>
-            {!spun && <Spinbutton spin={spin}/> }
+            {!spun && <Spinbutton data-cy="spinnow" spin={spin}/> }
           </Circle>
         </Container>
     </>

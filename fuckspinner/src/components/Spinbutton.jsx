@@ -27,7 +27,7 @@ export default function Spinbutton({spin}){
 
     return(
         <Spin>
-            <Now onClick={spin}>Spin</Now>
+            <Now cy-data="spinnow"onClick={spin}>Spin</Now>
             <Score>100</Score>
         </Spin>
     )

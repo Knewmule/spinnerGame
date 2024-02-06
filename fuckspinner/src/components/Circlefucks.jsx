@@ -38,30 +38,32 @@ const circlerotate = {
 }
 
 
-export default function Circlefucks({spun,ansec,blueref,itref,themref,youref,usref}){
+export default function Circlefucks({spun,ansec,blueref}){
 
   
 
 
     return (
             <>
-            <Drawout ref={itref}id={circlerotate.it}>
+            <Drawout id={circlerotate.it}>
               <Drawoutspan >Fuck It</Drawoutspan>
             </Drawout>
-            <Drawout ref={youref}id={circlerotate.you}>
+            <Drawout id={circlerotate.you}>
               <Drawoutspan>Fuck You</Drawoutspan>
             </Drawout>
           
           
-          {spun ? <Aligner  d1={ansec.d1} d2={ansec.d2} d3={ansec.d3} d4={ansec.d3}sec={ansec.sec} /> :
-            <Aligner blueref={blueref} d1={null} d2={null} d3={null} d4={ansec.d3}sec={null} /> } 
+          {!spun && ansec !== undefined && <Aligner blueref={blueref} d1={null} d2={null} d3={null} d4={ansec.d3}sec={null} /> } 
+          {spun && ansec !== undefined && <Aligner  d1={ansec.d1} d2={ansec.d2} d3={ansec.d3} d4={ansec.d3}sec={ansec.sec} /> 
+            
+            } 
       
           
           <Fucksr>
-            <Drawout ref={themref} id={circlerotate.them}>
+            <Drawout id={circlerotate.them}>
               <Drawoutspan>Fuck Em</Drawoutspan>
             </Drawout>
-            <Drawout ref={usref} id={circlerotate.us}>
+            <Drawout id={circlerotate.us}>
               <Drawoutspan>Fuck Us</Drawoutspan>
             </Drawout>
           </Fucksr>
