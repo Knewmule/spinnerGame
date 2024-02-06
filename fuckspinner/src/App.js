@@ -2,10 +2,9 @@ import './App.css';
 import Header from './components/Header';
 import { styled } from "styled-components";
 import Circlefucks from "./components/Circlefucks";
-import { useState,useCallback } from "react";
-import Aligner from "./components/Aligner";
+import { useState,useCallback } from "react"; 
 import Spinbutton from "./components/Spinbutton";
-
+import { spaces } from './Spots';
 const Container = styled.main`
     display: flex;
     justify-content: center;
@@ -32,12 +31,9 @@ display:flex;
   height:100%; 
 `
  function App(){
+  const space = [];
   let [spun,setSpun] = useState(false);
-  let [bluestate,setBluestate] = useState({});
-  let [itstate,setItstate] = useState();
-  let [youstate,setYoustate] = useState();
-  let [themstate,setThemstate] = useState();
-  let [usstate,setUsstate] = useState();
+  let [bluestate,setBluestate] = useState( {x:0,y:0,width:0,height:0});
   let [ansec,setAnsec] = useState({
     sec:0,d1:0,d2:0,d3:0
   });
@@ -76,66 +72,45 @@ function getRandomArbitrary(min, max) {
   let blueref = useCallback(domNode =>{
     
     if(!spun && domNode){
-      setBluestate(domNode.getBoundingClientRect());
-    }
-  },[]);
-  let itref = useCallback(domNode =>{
-    if(domNode){
-      setItstate(domNode.getBoundingClientRect());
-    }
-  },[]);
-  let usref = useCallback(domNode =>{
-    if(domNode){
-      setUsstate(domNode.getBoundingClientRect());
-    }
-  },[]);
-  let themref = useCallback(domNode =>{
-    if(domNode){
-      setThemstate(domNode.getBoundingClientRect());
-    }
-  },[]);
-  let youref = useCallback(domNode =>{
-    if(domNode){
-      setYoustate(domNode.getBoundingClientRect());
+      let x = domNode.getBoundingClientRect().x;
+      let width = domNode.getBoundingClientRect().width;
+      let y = domNode.getBoundingClientRect().y;
+      let height = domNode.getBoundingClientRect().height;
+      let blueobj = {x,width,y,height};
+      setBluestate(blueobj);
     }
   },[]);
   
   function handleBluestate (){
-      
-    console.log('bluestate ',bluestate);
-    console.log('itstate ',itstate);
-    console.log('youstate ',youstate);
-    console.log('themstate ',themstate);
-    console.log('usstate ',usstate);
-    CollisionTest(bluestate.toJSON(),usstate.toJSON(),
-            themstate.toJSON(),itstate.toJSON(),youstate.toJSON())
+    spaces.map( (e,i) =>{
+      let sobj ={x:e.x,width:e.width,y:e.y,height:e.height};
+        space[i] = sobj;
+    })
+
+    console.log('itstate ',space[0].x);
+    console.log('youstate ',space[1].x);
+    console.log('themstate ',space[2].x);
+    console.log('usstate ',space[3].x);
+    CollisionTest();
    
  }
 
  // Tell where the blue dot has collided with the board
- // @bluestate = bluedot @usstate = us @themstate = them @itstate = it @youstate = you
+ // @bluestate = bluedot 3us = us 2them = them @it[0] = it @you1 = you
 function CollisionTest(){
-  if (bluestate.x < usstate.x + usstate.width &&
-    bluestate.x + bluestate.width > usstate.x &&
-    bluestate.y < usstate.y + usstate.height &&
-    bluestate.height + bluestate.y > usstate.y) {
-    console.log('usstate hit US');
-}else if (bluestate.x < themstate.x + themstate.width &&
-  bluestate.x + bluestate.width > themstate.x &&
-  bluestate.y < themstate.y + themstate.height &&
-  bluestate.height + bluestate.y > themstate.y) {
-  console.log('themstate hit them');
-}else if (bluestate.x < itstate.x + itstate.width &&
-   bluestate.x + bluestate.width > itstate.x &&
-   bluestate.y < itstate.y + itstate.height &&
-   bluestate.height + bluestate.y > itstate.y) {
-  console.log('itstate hit it');
-}else if (bluestate.x < youstate.x + youstate.width &&
-   bluestate.x + bluestate.width > youstate.x &&
-   bluestate.y < youstate.y + youstate.height &&
-   bluestate.height + bluestate.y > youstate.y) {
-    console.log('youstate hit you');
-}
+  const namesArray = ['it','you','them','us'];
+  space.map( (e,i) => {
+    if (bluestate.x < space[i].x + space[i].width &&
+      bluestate.x + bluestate.width > space[i].x &&
+      bluestate.y < space[i].y + space[i].height &&
+      bluestate.height + bluestate.y > space[i].y) {
+      
+      console.log('hit'+namesArray[i]);
+      return;
+  }
+  })
+
+
   // Collision test for circle if needed
 //   if (distance < circle1.radius + circle2.radius) {
 //     // Collision detected!
@@ -156,8 +131,7 @@ function CollisionTest(){
           <Circle>
             <Fucks>
             {!spun  && bluestate !== null && handleBluestate() }
-              <Circlefucks blueref={blueref} itref={itref} 
-              usref={usref} themref={themref} youref={youref}
+              <Circlefucks blueref={blueref} 
               ansec={ansec} spun={spun}/>
             </Fucks>
           </Circle>
