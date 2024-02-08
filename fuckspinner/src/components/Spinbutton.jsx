@@ -1,11 +1,11 @@
 import {styled} from 'styled-components';
 
-const Spin = styled.div`
+export const Spin = styled.div`
 display:flex;
 flex-direction:column;
 align-items:center;
 `
-const Now = styled.button`
+export const Now = styled.button`
 display:flex;
 justify-content:space-evenly;
 align-items:flex-end;
@@ -19,7 +19,7 @@ border-top-left-radius:106px;
 border-top-right-radius:110px;
 color:black;
 `
-const Score = styled.p`
+export const Score = styled.p`
 font-size:28px;
 color:black;
 `
@@ -27,7 +27,7 @@ export default function Spinbutton({spin}){
 
     return(
         <Spin>
-            <Now cy-data="spinnow"onClick={spin}>Spin</Now>
+            <Now onClick={spin}>Spin</Now>
             <Score>100</Score>
         </Spin>
     )

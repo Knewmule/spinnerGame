@@ -41,6 +41,7 @@
     "@types/jest": "^29.5.12",
     "cypress": "^13.6.4",
     "enzyme": "^3.11.0",
-    "jest": "^27.5.1"
+    "jest": "^27.5.1",
+    "jest-styled-components": "^7.2.0"
   }
 }

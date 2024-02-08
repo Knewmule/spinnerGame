@@ -1,9 +1,6 @@
 import {styled} from 'styled-components';
-import { useCallback,useState } from 'react';
-import { StyleSheetManager } from 'styled-components';
-import isValidProp from '@emotion/is-prop-valid';
 import  Aligner  from './Aligner.jsx';
-const Drawoutspan = styled.span`
+export const Drawoutspan = styled.span`
 display:flex;
   justify-content:baseline;
   align-content:center;
@@ -13,7 +10,7 @@ display:flex;
   align-items:flex-end;
   transform: rotate(-40deg);
 `
-const Drawout = styled.p`
+export const Drawout = styled.p`
 padding:0%;
   margin:0%;
   width:50%;
@@ -22,7 +19,7 @@ padding:0%;
   border:1px solid black;
   transform:rotate(${props=>props.id});
 `
-const Fucksr = styled.div`
+export const Fucksr = styled.div`
 display:flex;
   flex-direction:row;
   justify-content:center;
@@ -33,7 +30,7 @@ display:flex;
   top:50%;
 `
 
-const circlerotate = {
+export const circlerotate = {
   it:0+'deg', you:90+'deg',them:-90+'deg',us:180+'deg'
 }
 
