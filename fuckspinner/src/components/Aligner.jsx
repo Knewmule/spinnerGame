@@ -18,7 +18,7 @@ export const Bluedot = styled.div`
   
 `
 
-const circleit = ( {d1,d2,d3}) =>keyframes`
+export const circleit = ( {d1,d2,d3}) =>keyframes`
   1%{
   transform: rotate(${d1+'deg'});
   } 
@@ -62,7 +62,7 @@ export default function Aligner({d1,d2,d3,d4,sec,blueref}){
     return (
       <StyleSheetManager shouldForwardProp={ansec => isValidProp(ansec)}>
 
-<Align id='alignfire' d1={d1}d2={d2}d3={d3}d4={d4}sec={sec} >
+<Align  d1={d1}d2={d2}d3={d3}d4={d4}sec={sec} >
         <Bluedot ref={blueref} ></Bluedot>  
     </Align>
       </StyleSheetManager>
