@@ -60,7 +60,7 @@ export default function Aligner({d1,d2,d3,d4,sec,blueref}){
   
    
     return (
-      <StyleSheetManager shouldForwardProp={ansec => isValidProp(ansec)}>
+      <StyleSheetManager shouldForwardProp={(ansec) => isValidProp(ansec)}>
 
 <Align  d1={d1}d2={d2}d3={d3}d4={d4}sec={sec} >
         <Bluedot ref={blueref} ></Bluedot>  

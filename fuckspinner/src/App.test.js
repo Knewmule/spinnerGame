@@ -1,3 +1,8 @@
+/**
+ * @jest-environment ./src/jestTestEnv
+ */
+
+import React from 'react';
 import { render, screen } from '@testing-library/react';
 import App from './App';
 

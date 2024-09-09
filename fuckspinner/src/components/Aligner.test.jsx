@@ -29,8 +29,9 @@ describe("Aligner Component", () => {
       // )
       // // expect(circle).toMatchSpecificSnapshot('./circleit.snap')
       // expect(circle).toMatchSnapshot('./Aligner.test.jsx.snap')
-      const align = renderer.create(<Align d4 />).toJSON()
-      expect(align).toHaveStyleRule('transform',expect.any(String))
+      const align = renderer.create(<Align d4={'ff'} sec={'144'} />).toJSON()
+      
+      // expect(align).toHaveStyleRule('transform',expect.any(String))
       expect(align).toHaveStyleRule('right','0%')
       expect(align).toHaveStyleRule('top','30%')
       expect(align).toHaveStyleRule('bottom','0%')

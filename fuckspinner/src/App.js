@@ -1,3 +1,4 @@
+import React from 'react';
 import './App.css';
 import Header from './components/Header';
 import { styled } from "styled-components";
@@ -79,9 +80,9 @@ function getRandomArbitrary(min, max) {
       let blueobj = {x,width,y,height};
       setBluestate(blueobj);
     }
-  },[]);
+  },[spun]);
   
-  function handleBluestate (){
+   function handleBluestate (){
     spaces.map( (e,i) =>{
       let sobj ={x:e.x,width:e.width,y:e.y,height:e.height};
         space[i] = sobj;
@@ -91,7 +92,7 @@ function getRandomArbitrary(min, max) {
     console.log('youstate ',space[1].x);
     console.log('themstate ',space[2].x);
     console.log('usstate ',space[3].x);
-    CollisionTest();
+    return CollisionTest;
    
  }
 
@@ -99,17 +100,17 @@ function getRandomArbitrary(min, max) {
  // @bluestate = bluedot 3us = us 2them = them @it[0] = it @you1 = you
 function CollisionTest(){
   const namesArray = ['it','you','them','us'];
-  space.map( (e,i) => {
+  space.map( (e,i)=> {
     if (bluestate.x < space[i].x + space[i].width &&
       bluestate.x + bluestate.width > space[i].x &&
       bluestate.y < space[i].y + space[i].height &&
       bluestate.height + bluestate.y > space[i].y) {
       
       console.log('hit'+namesArray[i]);
-      return;
+    
   }
   })
-
+  return namesArray;
 
   // Collision test for circle if needed
 //   if (distance < circle1.radius + circle2.radius) {
