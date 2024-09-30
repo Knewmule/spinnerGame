@@ -1,6 +1,6 @@
 import styled, {keyframes, StyleSheetManager} from 'styled-components';
 import isValidProp from '@emotion/is-prop-valid';
-import { useCallback,useState } from 'react';
+import React,{ useCallback,useState } from 'react';
 export const Bluedot = styled.div`
 
 /*Spinner Style */
