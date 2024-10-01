@@ -1,5 +1,5 @@
 import React from 'react';
-import './App.css';
+import './App.module.css';
 import Header from './components/Header';
 import { styled } from "styled-components";
 import Circlefucks from "./components/Circlefucks";
@@ -126,20 +126,20 @@ function CollisionTest(){
     return(
     <>
       <Header />
-        <Container>
-          <Circle>Settings
-          </Circle>
-          <Circle>
-            <Fucks>
-            {!spun  && bluestate !== null && handleBluestate() }
-              <Circlefucks blueref={blueref} 
-              ansec={ansec} spun={spun}/>
-            </Fucks>
-          </Circle>
-          <Circle>
+        <div className='container'>
+          <div className='circle'>
+            Settings
+          </div>
+          <div className='fucks circle'>
+              {!spun  && bluestate !== null && handleBluestate() }
+                <Circlefucks blueref={blueref} 
+                ansec={ansec} spun={spun}/>    
+          </div>
+          <div className="circle">
             {!spun && <Spinbutton data-cy="spinnow" spin={spin}/> }
-          </Circle>
-        </Container>
+            
+          </div>
+        </div>
     </>
     );
 }
