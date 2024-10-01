@@ -1,36 +1,36 @@
 import React from 'react';
-import './App.module.css';
+import style from './App.module.css';
 import Header from './components/Header';
-import { styled } from "styled-components";
+// import { styled } from "styled-components";
 import Circlefucks from "./components/Circlefucks";
 import { useState,useCallback } from "react"; 
 import Spinbutton from "./components/Spinbutton";
 import { spaces } from './Spots';
-const Container = styled.main`
-    display: flex;
-    justify-content: center;
-    height: 500px;
-    border: 1px solid #000000;
-`
-const Circle = styled.div`
-/*Green Circle Container & Style*/
-      display:inline;
-      position:relative;
-      border: 5px solid #ff0000;
-      background-color: #00ff00;
-      width: 200px;
-      height: 200px;
-      border-radius: 400px; 
-      margin: 0.5em;
-`
-const Fucks = styled.div`
-display:flex;
-  flex-direction:row;
-  justify-content:center;
-  align-content:space-evenly;
-  width:100%;
-  height:100%; 
-`
+// const Container = styled.main`
+//     display: flex;
+//     justify-content: center;
+//     height: 500px;
+//     border: 1px solid #000000;
+// `
+// const Circle = styled.div`
+// /*Green Circle Container & Style*/
+//       display:inline;
+//       position:relative;
+//       border: 5px solid #ff0000;
+//       background-color: #00ff00;
+//       width: 200px;
+//       height: 200px;
+//       border-radius: 400px; 
+//       margin: 0.5em;
+// `
+// const Fucks = styled.div`
+// display:flex;
+//   flex-direction:row;
+//   justify-content:center;
+//   align-content:space-evenly;
+//   width:100%;
+//   height:100%; 
+// `
  function App(){
   const space = [];
   let [spun,setSpun] = useState(false);
@@ -92,7 +92,7 @@ function getRandomArbitrary(min, max) {
     console.log('youstate ',space[1].x);
     console.log('themstate ',space[2].x);
     console.log('usstate ',space[3].x);
-    return CollisionTest;
+    return CollisionTest();
    
  }
 
@@ -126,20 +126,21 @@ function CollisionTest(){
     return(
     <>
       <Header />
-        <div className='container'>
-          <div className='circle'>
+        <main className={style.container}>
+          <div className={style.circle}>
             Settings
           </div>
-          <div className='fucks circle'>
+          <div className={style.circle}>
+              <div className={style.fucks}>
               {!spun  && bluestate !== null && handleBluestate() }
                 <Circlefucks blueref={blueref} 
-                ansec={ansec} spun={spun}/>    
+                ansec={ansec} spun={spun}/>  
+              </div>  
           </div>
-          <div className="circle">
+          <div className={style.circle}>
             {!spun && <Spinbutton data-cy="spinnow" spin={spin}/> }
-            
           </div>
-        </div>
+        </main>
     </>
     );
 }

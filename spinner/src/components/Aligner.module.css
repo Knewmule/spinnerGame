@@ -12,8 +12,23 @@
     background-color:blue;
     border-radius:100px;
 }
+.align{
+    /*Spinner Keyframe Animations*/
 
-export const circleit = ( {d1,d2,d3}) =>keyframes`
+/*Spinner in the circle gets bigger yellowish*/
+
+  height: 40%;
+  width:6%;
+  background-color:yellow;
+  position:absolute;
+  left:50%;
+  right:0%;
+  top:30%;
+  bottom:0%;
+  z-index:1;
+}
+
+/* export const circleit = ( {d1,d2,d3}) =>keyframes`
   1%{
   transform: rotate(${d1+'deg'});
   } 
@@ -23,14 +38,14 @@ export const circleit = ( {d1,d2,d3}) =>keyframes`
   100%{
     transform: rotate(${d3+'deg'} );
   } 
-`
-export const Align = styled.span`
+` */
+/* export const Align = styled.span`
 
 /*Spinner Keyframe Animations*/
 
 /*Spinner in the circle gets bigger yellowish*/
 
-  height: 40%;
+  /* height: 40%;
   width:6%;
   background-color:yellow;
    animation: ${props => circleit(props)} linear ${props => props.sec}s ;
@@ -48,4 +63,4 @@ export const Align = styled.span`
 
 
 
-`
+` */ 
