@@ -1,41 +1,9 @@
 // import {styled} from 'styled-components';
 import style from './Circlefucks.module.css'
 import  Aligner  from './Aligner.jsx';
-// export const Drawoutspan = styled.span`
-// display:flex;
-//   justify-content:baseline;
-//   align-content:center;
-//   margin:1%;
-//   width:100%;
-//   height:50%;
-//   align-items:flex-end;
-//   transform: rotate(-40deg);
-// `
-// export const Drawout = styled.p`
-// padding:0%;
-//   margin:0%;
-//   width:50%;
-//   height:50%;
-//   border-top-left-radius:100px;
-//   border:1px solid black;
-//   transform:rotate(${props=>props.id});
-// `
-// export const Fucksr = styled.div`
-// display:flex;
-//   flex-direction:row;
-//   justify-content:center;
-//   align-content:space-evenly;
-//   width:100%;
-//   height:100%; 
-//   position:absolute;  
-//   top:50%;
-// `
-
-export const circlerotate = {
+const circlerotate = {
   it:0+'deg', you:90+'deg',them:-90+'deg',us:180+'deg'
 }
-
-
 export default function Circlefucks({spun,ansec,blueref}){
 
   const drawoutRotateIt ={
@@ -50,8 +18,6 @@ export default function Circlefucks({spun,ansec,blueref}){
   const drawoutRotateUs ={
     transform:`rotate(${circlerotate.us})`
   }
-
-
     return (
             <>
             <p style={drawoutRotateIt}className={style.drawout}id={circlerotate.it}>
