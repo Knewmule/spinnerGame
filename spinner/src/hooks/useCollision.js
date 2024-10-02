@@ -56,8 +56,6 @@ export default function useCollision(blueref,spun){
     let [loading,setLoading] = useState();
     // See where the blue dot is on the spinner
    blueref = useCallback(domNode =>{
-
-    
         setDom(domNode);
         setHit(CollisionTest(bluestate))
     

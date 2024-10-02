@@ -16,6 +16,7 @@ import useCollision from './hooks/useCollision';
     sec:0,d1:0,d2:0,d3:0
   });
   let blueref = useRef(null);
+  let {hit,loading,error} = useCollision(blueref,spun)
   function addsec(){
     let s = getRandomArbitrary(1,1);
     let deg3 = getRandomArbitrary(352,1220);
@@ -26,7 +27,7 @@ import useCollision from './hooks/useCollision';
     }
     return re;
   };
-  let {hit,loading,error} = useCollision(blueref,spun)
+  
 // Spin the spinner
   function spin(){
     let re = addsec();
@@ -57,14 +58,11 @@ import useCollision from './hooks/useCollision';
     
       //  a = CollisionTest();
       //  setHit()
-      if(loading && hit){
+      if(!loading){
         console.log('a'+loading + hit)
-      return(
-        hit
-      
-      )
+      }
    
- }}
+ }
 if(error){
   return(
     <p>Error{error}</p>
@@ -145,7 +143,9 @@ if(error){
             }
             
             {!spun  && 
-              <div>{HandleBluestate()}</div> }
+              <div>{HandleBluestate}{
+                hit
+                }</div> }
           </div>
         </main>
     </>
