@@ -33,6 +33,7 @@ import { spaces } from './Spots';
 // `
  function App(){
   const space = [];
+  let [hit,setHit] = useState();
   let [spun,setSpun] = useState(false);
   let [bluestate,setBluestate] = useState( {x:0,y:0,width:0,height:0});
   let [ansec,setAnsec] = useState({
@@ -110,7 +111,12 @@ function getRandomArbitrary(min, max) {
   return distance <= circleRadius;
 }
 
-
+const checkCollision = (spot) => {
+  const distance = Math.sqrt(
+    (bluestate.x - spot.x) ** 2 + (bluestate.y - spot.y) ** 2
+  );
+  return distance <= spot.width/2;
+};
  function CollisionTest(){
   const radius = bluestate.width/2;
   const namesArray = ['it','you','them','us'];
@@ -119,15 +125,32 @@ function getRandomArbitrary(min, max) {
     //   bluestate.x + bluestate.width > space[i].x &&
     //   bluestate.y < space[i].y + space[i].height &&
     //   bluestate.y + bluestate.height  > space[i].y) {
-      const collide = isCircleCollidingWithSquare(bluestate.x,
+      const collide1 = isCircleCollidingWithSquare(bluestate.x,
         bluestate.y,radius,space[i].x,
         space[i].y,space[i].width,
         space[i].height)
-      console.log('hit'+collide);
+      const collide = checkCollision(space[i]);
+      console.log('hit'+collide+collide1);
   //     return namesArray[i];
   // }
+      if(collide && collide1){
+        console.log(namesArray[2])
+        return namesArray[2]
+      }
+      if(!collide && !collide1){
+        console.log(namesArray[1])
+        return namesArray[1]
+      }
+      if(!collide && collide1){
+        console.log(namesArray[3])
+        return namesArray[3]
+      }
+      if(collide && !collide1){
+        console.log(namesArray[0])
+        return namesArray[0]
+      }
   })
-  
+ 
 
   // Collision test for circle if needed
 //   if (distance < circle1.radius + circle2.radius) {
@@ -150,7 +173,7 @@ function getRandomArbitrary(min, max) {
           <div className={style.circle}>
               <div className={style.fucks}>
               {!spun  && 
-              handleBluestate() }
+              <p>{handleBluestate()}</p> }
                 <Circlefucks blueref={blueref} 
                 ansec={ansec} spun={spun}/>  
               </div>  
@@ -159,6 +182,7 @@ function getRandomArbitrary(min, max) {
             {!spun && 
             <Spinbutton data-cy="spinnow" spin={spin}/> 
             }
+            {spun && hit}
           </div>
         </main>
     </>
