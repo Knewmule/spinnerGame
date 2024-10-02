@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Aligner Component describes Align style 1`] = `
+.c0 {
+  height: 40%;
+  width: 6%;
+  background-color: yellow;
+  animation: jSjLyy linear s;
+  position: absolute;
+  left: 50%;
+  right: 0%;
+  top: 30%;
+  bottom: 0%;
+  z-index: 1;
+  transform: rotate(truedeg);
+}
+
+<span
+  className="c0"
+  d4={true}
+/>
+`;
+
+exports[`Aligner Component describes Bluedot style 1`] = `
+.c0 {
+  left: 18%;
+  right: 0%;
+  top: 90%;
+  bottom: 0%;
+  position: absolute;
+  height: 20%;
+  width: 100%;
+  background-color: blue;
+  border-radius: 100px;
+}
+
+<div
+  className="c0"
+/>
+`;
+
+exports[`Aligner Component describes circleit keyframe: ./Aligner.test.jsx.snap 1`] = `
+<circleit
+  d1={true}
+  d2={true}
+  d3={true}
+/>
+`;

@@ -1,0 +1,10 @@
+
+
+{
+  "transform": {
+    "^.+\\.[t|j]sx?$": "babel-jest"
+  },
+  "bail": 1,
+  "verbose": true
+  
+}

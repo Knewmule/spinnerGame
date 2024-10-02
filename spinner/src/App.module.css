@@ -1,0 +1,48 @@
+.App{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;  
+}
+.App header {
+  background-color: green;
+  width:80%;
+  height: 30%;
+  border:1px solid black;
+  margin:2px;
+  padding:5px;
+}
+header h1{
+  display: flex;
+  justify-content: center;
+  font-size:35px;
+  font-family:'Ubuntu';
+  color:white;
+}
+.container{
+  display: flex;
+  justify-content: center;
+  height: 500px;
+  border: 1px solid #000000;
+}
+.circle{
+  /*Green Circle Container & Style*/
+  display:inline;
+  position:relative;
+  border: 5px solid #ff0000;
+  background-color: #00ff00;
+  width: 200px;
+  height: 200px;
+  border-radius: 400px; 
+  margin: 0.5em;
+}
+.fucks{
+  display:flex;
+  flex-direction:row;
+  justify-content:center;
+  align-content:space-evenly;
+  width:100%;
+  height:100%;
+}
+
+
