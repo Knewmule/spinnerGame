@@ -9,7 +9,7 @@ import useCollision from './hooks/useCollision';
 
  function App(){ 
   // let a = '';
-  let [hit,setHit] = useState('');
+  // let [hit,setHit] = useState('');
   let [spun,setSpun] = useState(false);
   // let [bluestate,setBluestate] = useState({x:0,y:0,width:0,height:0});
   let [ansec,setAnsec] = useState({
@@ -26,6 +26,7 @@ import useCollision from './hooks/useCollision';
     }
     return re;
   };
+  let {hit,loading,error} = useCollision(blueref,spun)
 // Spin the spinner
   function spin(){
     let re = addsec();
@@ -55,14 +56,20 @@ import useCollision from './hooks/useCollision';
     // console.log(spaces)
     
       //  a = CollisionTest();
-       setHit(useCollision(blueref,spun))
-      console.log('a'+hit)
+      //  setHit()
+      if(loading && hit){
+        console.log('a'+loading + hit)
       return(
-        <p>{hit}</p>
+        hit
+      
       )
    
- }
-
+ }}
+if(error){
+  return(
+    <p>Error{error}</p>
+  )
+}
  // Tell where the blue dot has collided with the board
  // @bluestate = bluedot 3us = us 2them = them @it[0] = it @you1 = you
 //  function isCircleCollidingWithSquare(circleX, circleY, circleRadius, 
@@ -138,7 +145,7 @@ import useCollision from './hooks/useCollision';
             }
             
             {!spun  && 
-              <p>{HandleBluestate()}</p> }
+              <div>{HandleBluestate()}</div> }
           </div>
         </main>
     </>

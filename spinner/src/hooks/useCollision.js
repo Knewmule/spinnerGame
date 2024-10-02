@@ -80,5 +80,6 @@ export default function useCollision(blueref,spun){
     return{
         hit,
         loading,
+        error,
     }
 }
