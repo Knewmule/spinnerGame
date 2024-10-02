@@ -27,9 +27,3 @@ export function isCircleCollidingWithSquare(circleX, circleY, circleRadius,
     return distance <= circleRadius;
   }
   
-// export const checkCollision = (spot) => {
-//     const distance = Math.sqrt(
-//       (bluestate.x - spot.x) ** 2 + (bluestate.y - spot.y) ** 2
-//     );
-//     return distance <= spot.width/2;
-//   };

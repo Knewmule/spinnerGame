@@ -5,12 +5,13 @@ import Circlefucks from "./components/Circlefucks";
 import { useState,useCallback } from "react"; 
 import Spinbutton from "./components/Spinbutton";
 import { spaces,getRandomArbitrary } from './Spots';
+import useCollision from './hooks/useCollision';
 
  function App(){ 
-  let a = '';
+  // let a = '';
   let [hit,setHit] = useState('');
   let [spun,setSpun] = useState(false);
-  let [bluestate,setBluestate] = useState( {x:0,y:0,width:0,height:0});
+  // let [bluestate,setBluestate] = useState({x:0,y:0,width:0,height:0});
   let [ansec,setAnsec] = useState({
     sec:0,d1:0,d2:0,d3:0
   });
@@ -37,87 +38,86 @@ import { spaces,getRandomArbitrary } from './Spots';
       d3:re.d3,sec:re.sec});
     console.log(ansec.d1,ansec.d2,ansec.d3, ansec.sec);
   }
-  // See where the blue dot is on the spinner
-   blueref = useCallback(domNode =>{
+  // // See where the blue dot is on the spinner
+  //  blueref = useCallback(domNode =>{
     
-    if(!spun && domNode){
-      let x = domNode.getBoundingClientRect().x;
-      let width = domNode.getBoundingClientRect().width;
-      let y = domNode.getBoundingClientRect().y;
-      let height = domNode.getBoundingClientRect().height;
-      let blueobj = {x,width,y,height};
-      setBluestate(blueobj);
-    }
-  },[spun]);
+  //   if(!spun && domNode){
+  //     let x = domNode.getBoundingClientRect().x;
+  //     let width = domNode.getBoundingClientRect().width;
+  //     let y = domNode.getBoundingClientRect().y;
+  //     let height = domNode.getBoundingClientRect().height;
+  //     let blueobj = {x,width,y,height};
+  //     setBluestate(blueobj);
+  //   }
+  // },[spun]);
   
-   function handleBluestate (){
-    console.log(spaces)
-    if(!spun ){
-       a = CollisionTest();
-      console.log('a'+a)
+   function HandleBluestate (){
+    // console.log(spaces)
+    
+      //  a = CollisionTest();
+       setHit(useCollision(blueref,spun))
+      console.log('a'+hit)
       return(
-        <p>{a}</p>
+        <p>{hit}</p>
       )
-    }else{
-      console.log('no')
-    }
+   
  }
 
  // Tell where the blue dot has collided with the board
  // @bluestate = bluedot 3us = us 2them = them @it[0] = it @you1 = you
- function isCircleCollidingWithSquare(circleX, circleY, circleRadius, 
-  squareX, squareY, squareWidth, squareHeight) {
-  // Find the closest point on the square to the circle's center
-  let closestX = Math.max(squareX, Math.min(circleX, squareX + squareWidth));
-  let closestY = Math.max(squareY, Math.min(circleY, squareY + squareHeight));
+//  function isCircleCollidingWithSquare(circleX, circleY, circleRadius, 
+//   squareX, squareY, squareWidth, squareHeight) {
+//   // Find the closest point on the square to the circle's center
+//   let closestX = Math.max(squareX, Math.min(circleX, squareX + squareWidth));
+//   let closestY = Math.max(squareY, Math.min(circleY, squareY + squareHeight));
 
-  // Calculate the distance between the circle's center and the closest point on the square
-  let distanceX = circleX - closestX;
-  let distanceY = circleY - closestY;
-  let distance = Math.sqrt(distanceX * distanceX + distanceY * distanceY);
+//   // Calculate the distance between the circle's center and the closest point on the square
+//   let distanceX = circleX - closestX;
+//   let distanceY = circleY - closestY;
+//   let distance = Math.sqrt(distanceX * distanceX + distanceY * distanceY);
 
-  // Check if the distance is less than the circle's radius
-  return distance <= circleRadius;
-}
+//   // Check if the distance is less than the circle's radius
+//   return distance <= circleRadius;
+// }
 
-const checkCollision = (spot) => {
-  const distance = Math.sqrt(
-    (bluestate.x - spot.x) ** 2 + (bluestate.y - spot.y) ** 2
-  );
-  return distance <= spot.width/2;
-};
- function CollisionTest(){
-  let collide = null;
-  let collide1 = null;
-  const radius = bluestate.width/2;
-  const namesArray = ['it','you','them','us'];
-  spaces.map( (e,i)=> {
-       collide1 = isCircleCollidingWithSquare(bluestate.x,
-        bluestate.y,radius,e.x,
-        e.y,e.width,
-        e.height)
-       collide = checkCollision(e);
-      console.log('hit'+collide+collide1);
+// const checkCollision = (spot) => {
+//   const distance = Math.sqrt(
+//     (bluestate.x - spot.x) ** 2 + (bluestate.y - spot.y) ** 2
+//   );
+//   return distance <= spot.width/2;
+// };
+//  function CollisionTest(){
+//   let collide = null;
+//   let collide1 = null;
+//   const radius = bluestate.width/2;
+//   const namesArray = ['it','you','them','us'];
+//   spaces.map( (e,i)=> {
+//        collide1 = isCircleCollidingWithSquare(bluestate.x,
+//         bluestate.y,radius,e.x,
+//         e.y,e.width,
+//         e.height)
+//        collide = checkCollision(e);
+//       console.log('hit'+collide+collide1);
 
       
-  })
-  if(collide && collide1){
-    console.log(namesArray[2])
-    return (namesArray[2])
-  }
-  if(!collide && !collide1){
-    console.log(namesArray[1])
-    return (namesArray[1])
-  }
-  if(!collide && collide1){
-    console.log(namesArray[3])
-    return (namesArray[3])
-  }
-  if(collide && !collide1){
-    console.log(namesArray[0])
-    return (namesArray[0])
-  }
-}
+//   })
+//   if(collide && collide1){
+//     console.log(namesArray[2])
+//     return (namesArray[2])
+//   }
+//   if(!collide && !collide1){
+//     console.log(namesArray[1])
+//     return (namesArray[1])
+//   }
+//   if(!collide && collide1){
+//     console.log(namesArray[3])
+//     return (namesArray[3])
+//   }
+//   if(collide && !collide1){
+//     console.log(namesArray[0])
+//     return (namesArray[0])
+//   }
+// }
 
     return(
     <>
@@ -138,7 +138,7 @@ const checkCollision = (spot) => {
             }
             
             {!spun  && 
-              <p>{handleBluestate()}</p> }
+              <p>{HandleBluestate()}</p> }
           </div>
         </main>
     </>
