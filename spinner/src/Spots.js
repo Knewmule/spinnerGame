@@ -10,3 +10,26 @@ export const spaces = [
 export function getRandomArbitrary(min, max) {
   return Math.random() * (max - min) + min;
 }
+ // Tell where the blue dot has collided with the board
+ // @bluestate = bluedot 3us = us 2them = them @it[0] = it @you1 = you
+export function isCircleCollidingWithSquare(circleX, circleY, circleRadius, 
+    squareX, squareY, squareWidth, squareHeight) {
+    // Find the closest point on the square to the circle's center
+    let closestX = Math.max(squareX, Math.min(circleX, squareX + squareWidth));
+    let closestY = Math.max(squareY, Math.min(circleY, squareY + squareHeight));
+  
+    // Calculate the distance between the circle's center and the closest point on the square
+    let distanceX = circleX - closestX;
+    let distanceY = circleY - closestY;
+    let distance = Math.sqrt(distanceX * distanceX + distanceY * distanceY);
+  
+    // Check if the distance is less than the circle's radius
+    return distance <= circleRadius;
+  }
+  
+// export const checkCollision = (spot) => {
+//     const distance = Math.sqrt(
+//       (bluestate.x - spot.x) ** 2 + (bluestate.y - spot.y) ** 2
+//     );
+//     return distance <= spot.width/2;
+//   };

@@ -7,7 +7,7 @@ import Spinbutton from "./components/Spinbutton";
 import { spaces,getRandomArbitrary } from './Spots';
 
  function App(){ 
-
+  let a = '';
   let [hit,setHit] = useState('');
   let [spun,setSpun] = useState(false);
   let [bluestate,setBluestate] = useState( {x:0,y:0,width:0,height:0});
@@ -52,15 +52,15 @@ import { spaces,getRandomArbitrary } from './Spots';
   
    function handleBluestate (){
     console.log(spaces)
-    if(!spun && hit !== null){
-      let a = CollisionTest();
+    if(!spun ){
+       a = CollisionTest();
       console.log('a'+a)
-      // setHit(a);
+      return(
+        <p>{a}</p>
+      )
     }else{
       console.log('no')
     }
-    // setHit(CollisionTest);
-    // console.log(e !== undefined && 'handle'+e);
  }
 
  // Tell where the blue dot has collided with the board
@@ -128,8 +128,6 @@ const checkCollision = (spot) => {
           </div>
           <div className={style.circle}>
               <div className={style.fucks}>
-              {!spun  && 
-              <p>{handleBluestate()}</p> }
                 <Circlefucks blueref={blueref} 
                 ansec={ansec} spun={spun}/>  
               </div>  
@@ -138,7 +136,9 @@ const checkCollision = (spot) => {
             {!spun && 
             <Spinbutton data-cy="spinnow" spin={spin}/> 
             }
-            {spun && <p>{hit}</p>}
+            
+            {!spun  && 
+              <p>{handleBluestate()}</p> }
           </div>
         </main>
     </>

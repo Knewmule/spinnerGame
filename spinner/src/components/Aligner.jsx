@@ -5,7 +5,7 @@ import style from './Aligner.module.css'
 export default function Aligner({d1,d2,d3,d4,sec,blueref}){
   const  circleit = ({d1,d2,d3})=>{
     const one = {
-      keyframes:{
+      "@keyframes":{
         "1%":{
         transform: `rotate(${d1+'deg'})`
       },
