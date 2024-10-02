@@ -54,23 +54,33 @@ export default function Circlefucks({spun,ansec,blueref}){
 
     return (
             <>
-            <p style={drawoutRotateIt.it}className={style.drawout}id={circlerotate.it}>
+            <p style={drawoutRotateIt}className={style.drawout}id={circlerotate.it}>
               <span className={style.drawoutspan}>Fuck It</span>
             </p>
             <p style={drawoutRotateYou}className={style.drawout}id={circlerotate.you}>
               <span className={style.drawoutspan}>Fuck You</span>
             </p>
-          {!spun && ansec !== undefined && <Aligner blueref={blueref} d1={null} d2={null} d3={null} d4={ansec.d3}sec={null} /> } 
-          {spun && ansec !== undefined && <Aligner  d1={ansec.d1} d2={ansec.d2} d3={ansec.d3} d4={ansec.d3}sec={ansec.sec} /> 
-            
+          {!spun && ansec !== undefined 
+          && <Aligner blueref={blueref} 
+          d1={null} 
+          d2={null} 
+          d3={null} 
+          d4={ansec.d3}sec={null} /> } 
+          {spun && ansec !== undefined 
+          && <Aligner  d1={ansec.d1} 
+          d2={ansec.d2} 
+          d3={ansec.d3} 
+          d4={ansec.d3}sec={ansec.sec} /> 
             } 
-      
-          
           <div className={style.fucksr}>
-          <p style={drawoutRotateThem} className={style.drawout}id={circlerotate.them}>
+          <p style={drawoutRotateThem} 
+          className={style.drawout}
+          id={circlerotate.them}>
               <span className={style.drawoutspan}>Fuck Them</span>
             </p>
-            <p style={drawoutRotateUs} className={style.drawout}id={circlerotate.us}>
+            <p style={drawoutRotateUs} 
+            className={style.drawout}
+            id={circlerotate.us}>
               <span className={style.drawoutspan}>Fuck Us</span>
             </p>
           </div>

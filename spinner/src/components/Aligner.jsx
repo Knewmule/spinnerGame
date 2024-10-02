@@ -52,7 +52,8 @@ import style from './Aligner.module.css'
 export default function Aligner({d1,d2,d3,d4,sec,blueref}){
   const  circleit = ({d1,d2,d3})=>{
     const one = {
-      "1%":{
+      keyframes:{
+        "1%":{
         transform: `rotate(${d1+'deg'})`
       },
       "25%":{
@@ -60,6 +61,7 @@ export default function Aligner({d1,d2,d3,d4,sec,blueref}){
       },
       "100%":{
         transform: `rotate(${d3+'deg'})`
+      }
       }
     }
     return one;

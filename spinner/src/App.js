@@ -43,8 +43,8 @@ function getRandomArbitrary(min, max) {
   return Math.random() * (max - min) + min;
 }
   function addsec(){
-    let s = getRandomArbitrary(4,5);
-    let deg3 = getRandomArbitrary(651,1220);
+    let s = getRandomArbitrary(1,1);
+    let deg3 = getRandomArbitrary(352,1220);
     let deg2 = getRandomArbitrary(331,650);
     let deg1 = getRandomArbitrary(0,330);
     let re = {
@@ -55,13 +55,10 @@ function getRandomArbitrary(min, max) {
   };
 // Spin the spinner
   function spin(){
-    
     let re = addsec();
-
     const spinTimeout = setTimeout( ()=>{
       setSpun(false);  
       clearTimeout(spinTimeout);
-      
     }, ansec.sec*1000);
     setSpun(true);
     
@@ -87,30 +84,50 @@ function getRandomArbitrary(min, max) {
       let sobj ={x:e.x,width:e.width,y:e.y,height:e.height};
         space[i] = sobj;
     })
-
-    console.log('itstate ',space[0].x);
-    console.log('youstate ',space[1].x);
-    console.log('themstate ',space[2].x);
-    console.log('usstate ',space[3].x);
+    console.log(spaces)
+    // console.log('itstate ',space[0].x);
+    // console.log('youstate ',space[1].x);
+    // console.log('themstate ',space[2].x);
+    // console.log('usstate ',space[3].x);
     return CollisionTest();
    
  }
 
  // Tell where the blue dot has collided with the board
  // @bluestate = bluedot 3us = us 2them = them @it[0] = it @you1 = you
-function CollisionTest(){
+ function isCircleCollidingWithSquare(circleX, circleY, circleRadius, 
+  squareX, squareY, squareWidth, squareHeight) {
+  // Find the closest point on the square to the circle's center
+  let closestX = Math.max(squareX, Math.min(circleX, squareX + squareWidth));
+  let closestY = Math.max(squareY, Math.min(circleY, squareY + squareHeight));
+
+  // Calculate the distance between the circle's center and the closest point on the square
+  let distanceX = circleX - closestX;
+  let distanceY = circleY - closestY;
+  let distance = Math.sqrt(distanceX * distanceX + distanceY * distanceY);
+
+  // Check if the distance is less than the circle's radius
+  return distance <= circleRadius;
+}
+
+
+ function CollisionTest(){
+  const radius = bluestate.width/2;
   const namesArray = ['it','you','them','us'];
   space.map( (e,i)=> {
-    if (bluestate.x < space[i].x + space[i].width &&
-      bluestate.x + bluestate.width > space[i].x &&
-      bluestate.y < space[i].y + space[i].height &&
-      bluestate.height + bluestate.y > space[i].y) {
-      
-      console.log('hit'+namesArray[i]);
-    
-  }
+    // if (bluestate.x < space[i].x + space[i].width &&
+    //   bluestate.x + bluestate.width > space[i].x &&
+    //   bluestate.y < space[i].y + space[i].height &&
+    //   bluestate.y + bluestate.height  > space[i].y) {
+      const collide = isCircleCollidingWithSquare(bluestate.x,
+        bluestate.y,radius,space[i].x,
+        space[i].y,space[i].width,
+        space[i].height)
+      console.log('hit'+collide);
+  //     return namesArray[i];
+  // }
   })
-  return namesArray;
+  
 
   // Collision test for circle if needed
 //   if (distance < circle1.radius + circle2.radius) {
@@ -132,13 +149,16 @@ function CollisionTest(){
           </div>
           <div className={style.circle}>
               <div className={style.fucks}>
-              {!spun  && bluestate !== null && handleBluestate() }
+              {!spun  && 
+              handleBluestate() }
                 <Circlefucks blueref={blueref} 
                 ansec={ansec} spun={spun}/>  
               </div>  
           </div>
           <div className={style.circle}>
-            {!spun && <Spinbutton data-cy="spinnow" spin={spin}/> }
+            {!spun && 
+            <Spinbutton data-cy="spinnow" spin={spin}/> 
+            }
           </div>
         </main>
     </>
